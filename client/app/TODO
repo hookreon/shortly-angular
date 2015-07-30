@@ -1,0 +1,7 @@
+TODO
+- Make custom directive for nav template
+  - include in links + shorten template
+  - use ngHref? to avoid page reload
+  - populate dynamically from model of links
+
+- move routes to app.js or other centralized routing file

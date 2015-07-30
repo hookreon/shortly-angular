@@ -11,6 +11,7 @@ var LinkSchema = new mongoose.Schema({
 });
 
 var createSha = function(url) {
+  console.log('createSha', url);
   var shasum = crypto.createHash('sha1');
   shasum.update(url);
   return shasum.digest('hex').slice(0, 5);

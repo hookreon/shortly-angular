@@ -146,3 +146,25 @@ input[type=url]:focus {
   clear: both;
 }
 
+
+.nav {
+  width: 100%;
+}
+
+.clearfix { display: inline-block;}
+.nav.clearfix:after {
+  display: block;
+  clear: both;
+}
+
+.nav li{
+  display: inline-block;
+  float: left;
+  /*min-width: 100px;*/
+  margin-right: 20px;
+  list-style-type: none;
+}
+
+.logout {
+  cursor: pointer;
+}

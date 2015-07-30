@@ -13,6 +13,7 @@ module.exports = function (app) {
     .get(linksController.allLinks)
     .post(linksController.newLink);
 
+  //TODO GET http://localhost:3000/7156e WORKING
   app.get('/:code', linksController.navToLink);
 
 };
