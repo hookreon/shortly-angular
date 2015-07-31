@@ -4,22 +4,39 @@ angular.module('shortly', [
   'shortly.shorten',
   'shortly.auth',
   'shortly.nav',
-  'ngRoute'
+  'ui.router',
+  'ngFx'
 ])
-.config(function($routeProvider, $httpProvider) {
-  $routeProvider
-    .when('/signin', {
+.config(function($urlRouterProvider, $httpProvider, $stateProvider) {
+  $stateProvider
+    .state('signin', {
+      url: '/signin',
       templateUrl: 'app/auth/signin.html',
-      controller: 'AuthController'
+      controller: 'AuthController',
     })
-    .when('/signup', {
+    .state('signup', {
+      url: '/signup',
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
     })
-    .otherwise({
-      templateUrl: 'app/auth/signin.html',
-      controller: 'AuthController'
+    .state('shorten', {
+      url: '/shorten',
+      templateUrl: 'app/shorten/shorten.html',
+      controller: 'ShortenController',
+      authenticate: true
     })
+    .state('links', {
+      url: '/links',
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController',
+      authenticate: true
+    })
+    .state('links.child', {
+      url: '/child',
+      template: '<span>ok</span>'
+    });
+
+  $urlRouterProvider.otherwise('/links');
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls

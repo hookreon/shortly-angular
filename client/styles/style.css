@@ -168,3 +168,15 @@ input[type=url]:focus {
 .logout {
   cursor: pointer;
 }
+
+input.ng-invalid {
+  background-color: pink;
+}
+
+input.ng-valid {
+  background-color: #71EEb4;
+}
+
+input.ng-pristine {
+  background-color: white;
+}

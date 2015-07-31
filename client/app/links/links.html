@@ -1,9 +1,8 @@
+<div nav-view></div>
 <div id='container'>
+<input type="text" ng-model="searchTerm" placeholder="search">
 <ul>
-  <li ng-repeat="link in data.links">
-    <span class="link-url">{{ link.url }}</span>
-    <span class="link-title">{{ link.title }}</span>
-    <a href="{{ link.url }}" class="link-link">{{ link.code }}</a>
-  </li>
+  <li link-view ng-repeat="link in data.links | orderBy:'-visits' | filter:searchTerm" class="fx-fade-down fx-easing-bounce fx-speed-1800" ></li>
 </ul>
 </div>
+<ui-view>

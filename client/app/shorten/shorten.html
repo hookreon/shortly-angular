@@ -1,4 +1,7 @@
+<div nav-view></div>
 <div id='container'>
-  <input type="text" ng-model="newLink">
-  <button ng-click="addLink(newLink)">shortlify</button>
+  <form novalidate name="shortenForm">
+    <input type="url" ng-model="newLink" required placeholder="http://">
+    <button ng-click="addLink(newLink)" ng-disabled="shortenForm.$invalid">shortlify</button>
+  </form>
 </div>

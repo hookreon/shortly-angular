@@ -10,7 +10,7 @@ module.exports = {
       if (err) {
         defer.reject(err);
       } else {
-        var tag = /<title>(.*)<\/title>/;
+        var tag = /<title>(.*)<\/title>/i;
         var match = html.match(tag);
         var title = match ? match[1] : url;
         defer.resolve(title);

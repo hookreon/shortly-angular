@@ -1,33 +1,13 @@
-angular.module('shortly.links', ['ngRoute'])
+angular.module('shortly.links', ['ngFx'])
 
-.config(function($routeProvider){
-  $routeProvider
-    .when('/links', {
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController',
-      authenticate: true
-    })
-})
-.controller('LinksController', function ($scope, Links, Auth) {
-  angular.extend($scope, Links, Auth);
-  $scope.getLinks();
-})
-.factory('Links', function($http){
-  var data = {};
-  var getLinks = function getLinks () {
-    // $http call to backend
-    return $http({
-      method: 'GET',
-      url: '/api/links'
-    })
-    .then(function(resp){
-      console.log(resp.data);
-      data.links = resp.data;
-    });
-  };
-
+.controller('LinksController',
+  function ($scope, $location, Links, Auth) {
+    angular.extend($scope, Links, Auth);
+    $scope.getLinks()
+ })
+.directive('linkView', function(){
   return {
-    data: data,
-    getLinks: getLinks
+    restrict: 'EA',
+    templateUrl: 'app/links/link.html',
   }
 });
